@@ -21,7 +21,7 @@ public class Helper {
         // Generar token JWT
         String token = jwtTokenProvider.generateToken(usuario.getEmail());
 
-        // fechas y otros campos
+        // fecha
         Date now = new Date();
 
         User BuildToUser = User.builder()
