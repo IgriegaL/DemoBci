@@ -1,6 +1,6 @@
 # Demo BCI
 
-Esta demo es una inserción de Spring en donde se puede insertar en una tabla H2 un usuario con el siguiente formato:
+Esta demo para insertar usuario usando Spring en una tabla H2 un usuario con el siguiente formato:
 
      { 
     "name": "string", 
