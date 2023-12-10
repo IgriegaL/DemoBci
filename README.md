@@ -1,6 +1,6 @@
 # Demo BCI
 
-Esta demo para insertar usuario usando Spring en una tabla H2 un usuario con el siguiente formato:
+Esta demo para insertar usuario usando Spring en una tabla H2, el request para insertar un nuevo usuario debe considerar el siguiente formato:
 
      { 
     "name": "string", 
