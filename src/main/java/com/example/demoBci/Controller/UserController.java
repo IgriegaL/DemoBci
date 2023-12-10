@@ -42,7 +42,6 @@ public class UserController {
             }
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errores);
         }
-
         if (usuarioService.correoExistente(usuario.getEmail())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El correo ya registrado");
         }
@@ -51,7 +50,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Formato de correo incorrecto");
         }
 
-        // Guardar usuario en la base de datos
+        // Guarda usuario en la base de datos
         User registrado;
         try {
             registrado = usuarioService.registrarUsuario(helper.HelperUser(usuario));
@@ -61,7 +60,7 @@ public class UserController {
             errorResponse.put("StackTrace", e.getStackTrace());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
         }
-        // Devolver respuesta con el usuario registrado y otros campos
+        // Devuelve respuesta con el usuario registrado y otros campos
         return ResponseEntity.status(HttpStatus.CREATED).body(registrado);
     }
 
@@ -74,7 +73,7 @@ public class UserController {
             response.put("200", "No hay usuarios registrados");
             return ResponseEntity.status(HttpStatus.OK).body(response);
         }
-
+        // Devuelve usuarios si encuentra en la bd
         return ResponseEntity.status(HttpStatus.OK).body(usuarios);
     }
 }
