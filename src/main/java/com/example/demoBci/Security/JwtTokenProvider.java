@@ -19,10 +19,11 @@ import java.util.Date;
 @Component
 public class JwtTokenProvider {
 
-    // use key from properties
+    // llave desde el properties
     @Value("${jwt.secret}")
     private String jwtSecret;
-
+    
+    // expiración desde el properties
     @Value("${jwt.expiration}")
     private int jwtExpiration;
 
@@ -30,11 +31,11 @@ public class JwtTokenProvider {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtExpiration);
 
-        // IF you want and use generating a random HS256 Secret key with secretString
+        // Se puede usar para una key random
         SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
         String secretString = Encoders.BASE64.encode(key.getEncoded());
 
-        // Create a Logger for see key from console
+        // logger para ver por consola
         // Logger logger = Logger.getLogger(secretString);
         // logger.info("Secret key: " + secretString);
 
