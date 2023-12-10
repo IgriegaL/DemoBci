@@ -2,18 +2,18 @@
 
 Esta demo es una inserción de Spring en donde se puede insertar en una tabla H2 un usuario con el siguiente formato:
 
-    { 
+     { 
     "name": "string", 
     "email": "string", 
     "password": "string", 
-    "phones": [
-			    { 
-			    "number": "string", 
-			    "cityCode": "string", 
-			    "countryCode": "string" 
-			    }
-			  ] 
-	}
+    "phones": 	[
+		    { 
+		    "number": "string", 
+		    "citycode": "string", 
+		    "contrycode": "string" 
+		    }
+      		] 
+     }
 
 Para usar el proyecto, sigue estos pasos:
 1.  Levanta el proyecto:
