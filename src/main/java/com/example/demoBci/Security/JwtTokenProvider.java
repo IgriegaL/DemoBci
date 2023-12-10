@@ -19,7 +19,7 @@ import java.util.Date;
 @Component
 public class JwtTokenProvider {
 
-    //Opcional para usar llave
+    // use key from properties
     @Value("${jwt.secret}")
     private String jwtSecret;
 
@@ -30,19 +30,19 @@ public class JwtTokenProvider {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtExpiration);
 
-        //Generating a safe HS256 Secret key
+        // IF you want and use generating a random HS256 Secret key with secretString
         SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
         String secretString = Encoders.BASE64.encode(key.getEncoded());
 
-        // Create a Logger para ver llave desde consola
-        Logger logger = Logger.getLogger(secretString);
-        logger.info("Secret key: " + secretString);
+        // Create a Logger for see key from console
+        // Logger logger = Logger.getLogger(secretString);
+        // logger.info("Secret key: " + secretString);
 
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
-                .signWith(SignatureAlgorithm.HS512,secretString)
+                .signWith(SignatureAlgorithm.HS512,jwtSecret)
                 .compact();
     }
 

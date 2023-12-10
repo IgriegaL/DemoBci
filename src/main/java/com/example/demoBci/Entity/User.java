@@ -24,7 +24,7 @@ public class User {
     @NotBlank(message = "Email is required.")
     @Email(message = "Email is not valid.")
     private String correo;
-    @Size(min = 5, message = "Password ust have at list 5 caracteres")
+    @Size(min = 5, message = "Password ust have at list 5 characters")
     private String password;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario_id")

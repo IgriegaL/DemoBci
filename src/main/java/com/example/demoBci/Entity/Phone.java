@@ -19,7 +19,7 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String number;
-    private String cityCode;
-    private String countryCode;
+    private String citycode;
+    private String contrycode;
 
 }

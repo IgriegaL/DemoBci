@@ -28,7 +28,7 @@ public class UserRequest {
     public List<Phone> toPhoneList() {
         return phones.stream()
                 .map(phoneRequest ->
-                        new Phone(null,phoneRequest.getNumber(), phoneRequest.getCityCode(), phoneRequest.getCountryCode()))
+                        new Phone(null,phoneRequest.getNumber(), phoneRequest.getCitycode(), phoneRequest.getContrycode()))
                 .collect(Collectors.toList());
     }
 }

@@ -19,10 +19,6 @@ import java.util.*;
 @RequestMapping("/api/usuarios")
 public class UserController {
 
-    //Opcional para usar llave
-    @Value("${Key.RegularExpression}")
-    private String claveExpresionRegular;
-
     @Value("${Key.EmailPattern}")
     private String EMAIL_PATTERN;
     private final UserService usuarioService;
@@ -53,10 +49,6 @@ public class UserController {
         // Valida correo con expresión regular
         if (!usuario.getEmail().matches(EMAIL_PATTERN)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Formato de correo incorrecto");
-        }
-        // Valida clave con expresión regular
-        if (!usuario.getPassword().matches(claveExpresionRegular)) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Formato de clave incorrecto");
         }
 
         // Guardar usuario en la base de datos
